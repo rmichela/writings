@@ -44,7 +44,7 @@ The high/low quadrant is the home to open standards. This is the quadrant that d
 
 Examples include:
 
-* TCP/IP. Arguably the most successful interoperability standard in history and the foundation of the internet. IPv4 has remained relatively unchanged since the 1980s. IPv6 was standardized in 1996 and still struggles with adoption.
+* TCP/IP. Arguably the most successful interoperability standard in history and the foundation of the internet. IPv4 has remained relatively unchanged since the 1980s. The IETF standardized IPv6 in 1996 and it still struggles with adoption.
 * SMTP. The protocol that powers all email, but is also the source of spam. Preventing spam has proven to be nearly impossible specifically due to the open nature of the protocol.
 * Unix Pipes. Processes share information by streaming lines of text between each other. The output of one is the input of the other. The Unix Way gave rise to much of modern computing, but struggles exchanging anything more complicated than line-oriented ASCII text.
 
@@ -55,7 +55,7 @@ The low/low quadrant is the "just get it done" quadrant. Not every project has t
 Examples include:
 
 * Exchanging CSV file drops. CSV has no enforced standard, and no formal schema, but it's nearly trivial to read and process.
-* Screen scrape automation. HTML was not meant for machine-to-machine interoperability, but in a pinch it _can_ be scraped. Automation built by scraping web pages and filling out forms can work when no other option is available.
+* Screen scrape automation. HTML was not meant for machine-to-machine interoperability, but in a pinch it _can_ be scraped. Automation that scrapes web pages and fills out forms can work when no other option is available.
 * Swivel-chair integration. A human reads data from one system and inputs it into another. The lack of any shared understanding between systems undermines machine-to-machine interoperability, forcing a human judgement to mediate the exchange. As a consolation, neither system has to change to adapt to the other.
 
 ### Low Coherence, High Intrusion
@@ -65,7 +65,7 @@ The low/high quadrant is the worst of both worlds. Integrations in this quadrant
 Examples include:
 
 * Service-provided client libraries. Client libraries only work in the language they were written in, and often drag along unwanted dependencies which sometimes conflict with each other. Client libraries with incompatible idioms add friction when integrating them together.
-* Video game consoles. Every console is a unique and highly optimized computing environment, yet game developers are expected to support all of them simultaneously. Many titles are rewritten nearly from scratch to port from one to another.
+* Video game consoles. Every console is a unique and highly optimized computing environment, yet game developers are expected to support all of them simultaneously. Game studios often rewrite their titles nearly from scratch to port them to every console.
 * HL7 v2. A data interchange format for exchanging medical data between electronic health record systems. The standard suffers from unnecessarily complex pipe-delimited data parsing rules, multiple ways of accomplishing the same task, and vendor-specific extensions. No two integrations are the same.
 
 ## Coherence and Intrusion in Practice
@@ -74,11 +74,11 @@ Technology and design choices do not exist in isolation. How they affect coheren
 
 ![context shifts the narrative](images/grpc-context-shift.svg)
 
-gRPC can make a strong foundation for a highly coherent developer experience within a monorepo behind a company firewall. Protobuf schemas can be easily shared within the repo. Standardized build tooling can generate client and server stubs, maintaining consistency and reducing boilerplate. The technology's natural intrusion can be leveraged to build standardized middleware for authentication, authorization, logging, and tracing.
+gRPC makes a strong foundation for a highly coherent developer experience within a monorepo behind a company firewall. Teams can easily share Protobuf schemas within the repo. Standardized build tooling can generate client and server stubs, maintaining consistency and reducing boilerplate. Platform developers can leverage the technology's natural intrusion to build standardized middleware for authentication, authorization, logging, and tracing.
 
-And yet, choosing gRPC for public APIs completely changes the equation. Protobuf schemas are difficult to distribute while keeping clients up to date. Code generators impose restrictions on which programming languages a customer can use. Shared middleware becomes a liability that must be ported to different languages and kept up to date. Finally, third-party dependencies on the gRPC runtime, protobuf libraries, and shared Google code can cause dependency conflicts with customer codebases.
+And yet, choosing gRPC for public APIs completely changes the equation. Protobuf schemas are difficult to distribute while keeping clients up to date. Code generators impose restrictions on which programming languages a customer can use. Shared middleware becomes a liability. Someone has to port it to every language and keep it current. Finally, third-party dependencies on the gRPC runtime, protobuf libraries, and shared Google code can cause dependency conflicts with customer codebases.
 
-The high intrusion of gRPC can be an asset when used as the foundation for an opinionated and coherent internal platform, but can become a liability when exposed to the idiosyncrasies of the open internet. A change in context can move it from the high/high quadrant to the low/high quadrant. Even worse, if yours is the only gRPC API your customers integrate with, choosing it may inadvertently _decrease_ the coherence of _their_ codebases by forcing them to adopt a technology they never chose.
+The high intrusion of gRPC can be an asset when you use it as the foundation for an opinionated and coherent internal platform, but can become a liability when it meets the idiosyncrasies of the open internet. A change in context can move it from the high/high quadrant to the low/high quadrant. Even worse, if yours is the only gRPC API your customers integrate with, choosing it may inadvertently _decrease_ the coherence of _their_ codebases by forcing them to adopt a technology they never chose.
 
 ## Choosing Deliberately
 
