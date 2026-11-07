@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 740" width="900" height="740" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title>Coherence vs. Intrusion: four quadrants</title>
+  <desc>A two-by-two grid. Coherence runs from low to high on the vertical axis and intrusion from low to high on the horizontal axis. Top-left: open standard. Top-right: opinionated platform. Bottom-left: free-for-all. Bottom-right: worst of both.</desc>
+
+  <rect width="900" height="740" fill="#ffffff"/>
+
+  <!-- Quadrant fills -->
+  <rect x="90"  y="50"  width="380" height="300" fill="#e6f4ea"/>
+  <rect x="470" y="50"  width="380" height="300" fill="#e3edfa"/>
+  <rect x="90"  y="350" width="380" height="300" fill="#f1f3f4"/>
+  <rect x="470" y="350" width="380" height="300" fill="#fce8e6"/>
+
+  <!-- Grid lines -->
+  <rect x="90" y="50" width="760" height="600" fill="none" stroke="#5f6368" stroke-width="1.5"/>
+  <line x1="470" y1="50" x2="470" y2="650" stroke="#5f6368" stroke-width="1.5"/>
+  <line x1="90" y1="350" x2="850" y2="350" stroke="#5f6368" stroke-width="1.5"/>
+
+  <!-- Top-left: open standard -->
+  <g fill="#202124">
+    <text x="110" y="85" font-size="18" font-weight="700" fill="#137333">OPEN STANDARD</text>
+    <text x="110" y="115" font-size="14">Narrow, well-specified contracts. Anyone</text>
+    <text x="110" y="135" font-size="14">can join and keep their own choices.</text>
+    <text x="110" y="175" font-size="13" font-weight="700" fill="#5f6368">EXAMPLES</text>
+    <text x="110" y="195" font-size="14">TCP/IP, SMTP, Unix pipes</text>
+    <text x="110" y="320" font-size="14" font-style="italic" fill="#137333">"Agree on little, reuse everywhere"</text>
+  </g>
+
+  <!-- Top-right: opinionated platform -->
+  <g fill="#202124">
+    <text x="490" y="85" font-size="18" font-weight="700" fill="#1a56b0">OPINIONATED PLATFORM</text>
+    <text x="490" y="115" font-size="14">A strict shared stack that buys guarantees:</text>
+    <text x="490" y="135" font-size="14">determinism, noise immunity, uniform failure</text>
+    <text x="490" y="155" font-size="14">handling. Intrusion is the price of admission.</text>
+    <text x="490" y="195" font-size="13" font-weight="700" fill="#5f6368">EXAMPLES</text>
+    <text x="490" y="215" font-size="14">CAN bus, gRPC in a monorepo,</text>
+    <text x="490" y="235" font-size="14">Kubernetes</text>
+    <text x="490" y="320" font-size="14" font-style="italic" fill="#1a56b0">"Welcome intrusion"</text>
+  </g>
+
+  <!-- Bottom-left: free-for-all -->
+  <g fill="#202124">
+    <text x="110" y="385" font-size="18" font-weight="700" fill="#3c4043">FREE-FOR-ALL</text>
+    <text x="110" y="415" font-size="14">Each connection is its own deal. Cheap to</text>
+    <text x="110" y="435" font-size="14">start, expensive to scale. Fine for</text>
+    <text x="110" y="455" font-size="14">prototypes and one-offs.</text>
+    <text x="110" y="495" font-size="13" font-weight="700" fill="#5f6368">EXAMPLES</text>
+    <text x="110" y="515" font-size="14">CSV file drops, screen scraping</text>
+    <text x="110" y="620" font-size="14" font-style="italic" fill="#3c4043">"Pay per connection"</text>
+  </g>
+
+  <!-- Bottom-right: worst of both -->
+  <g fill="#202124">
+    <text x="490" y="385" font-size="18" font-weight="700" fill="#b3261e">WORST OF BOTH</text>
+    <text x="490" y="415" font-size="14">Imposes choices without delivering a shared</text>
+    <text x="490" y="435" font-size="14">foundation. You pay the cost of conformity</text>
+    <text x="490" y="455" font-size="14">and still translate at every seam.</text>
+    <text x="490" y="495" font-size="13" font-weight="700" fill="#5f6368">EXAMPLES</text>
+    <text x="490" y="515" font-size="14">Service-provided client libraries,</text>
+    <text x="490" y="535" font-size="14">video game consoles, HL7 v2</text>
+    <text x="490" y="620" font-size="14" font-style="italic" fill="#b3261e">"Unwanted intrusion"</text>
+  </g>
+
+  <!-- Vertical axis (Coherence) -->
+  <g fill="#202124" text-anchor="middle">
+    <text transform="translate(34 350) rotate(-90)" font-size="16" font-weight="700" letter-spacing="2">COHERENCE</text>
+    <text transform="translate(66 80) rotate(-90)" font-size="13" fill="#5f6368">HIGH</text>
+    <text transform="translate(66 620) rotate(-90)" font-size="13" fill="#5f6368">LOW</text>
+  </g>
+
+  <!-- Horizontal axis (Intrusion) -->
+  <g fill="#202124" text-anchor="middle">
+    <text x="470" y="707" font-size="16" font-weight="700" letter-spacing="2">INTRUSION</text>
+    <text x="130" y="682" font-size="13" fill="#5f6368">LOW</text>
+    <text x="810" y="682" font-size="13" fill="#5f6368">HIGH</text>
+  </g>
+  <line x1="190" y1="678" x2="750" y2="678" stroke="#9aa0a6" stroke-width="1.5"/>
+  <polygon points="190,673 180,678 190,683" fill="#9aa0a6"/>
+  <polygon points="750,673 760,678 750,683" fill="#9aa0a6"/>
+</svg>
